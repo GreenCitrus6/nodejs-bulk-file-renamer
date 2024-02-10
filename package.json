@@ -2,7 +2,8 @@
   "name": "nodejs-bulk-file-renamer",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "type": "module",
+  "main": "bin/app.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +17,10 @@
     "url": "https://github.com/GreenCitrus6/nodejs-bulk-file-renamer/issues"
   },
   "homepage": "https://github.com/GreenCitrus6/nodejs-bulk-file-renamer#readme",
+  "bin": {
+    "renamer": "./bin/app.mjs"
+  },
   "dependencies": {
-    "yargs": "^17.7.2"
+    "yargs": "13.2"
   }
 }
