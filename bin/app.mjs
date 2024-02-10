@@ -2,7 +2,8 @@
 import yargs from 'yargs';
 // import { hideBin } from 'yargs/helpers';
 import * as path from 'node:path';
-import * as fs from 'node:fs/promises';
+// import * as fs from 'node:fs/promises';
+import * as fs from 'node:fs';
 
 const options = yargs
     .usage("Usage: -i <input directory> -o <name of files to be renamed> -n <new name of files>")
@@ -15,16 +16,14 @@ const newName = options.name;
 
 const unallowedChars = new RegExp(/a/); //placeholder, will be characters that are not allowed in windows files names
 
-console.log(inputDirec);
+const fileList = fs.readdirSync(inputDirec);
+const filePaths = [];
+for (let file in fileList) {
+    let fileName = `${inputDirec}\\${fileList[file]}`
+    filePaths.push(fileName);
+}
 
-// const fileList = fs.readdirSync(inputDirec);
-// let files = [];
-// for (const file of fileList) {
-//     const name = `${inputDirec}/${file}`
-//     files.push(name);
-// }
-
-// console.log(files);
+console.log(filePaths);
 
 
 /* 1. regex processing the name format to be used
